@@ -11,3 +11,24 @@ contextBridge.exposeInMainWorld("deai", {
   },
   ping: () => ipcRenderer.invoke("ping"),
 });
+
+// ----- SEND -------
+// // Sender (renderer)
+// ipcRenderer.send('save-note', content);
+
+// // Receiver (main)
+// ipcMain.on('save-note', (event, content) => {
+//   // Handle saving note
+// });
+
+// ------- INVOKE -------
+// diff between ipcRenderer.invoke and ipcRenderer.send
+
+// // Sender (renderer)
+// const response = await ipcRenderer.invoke('chat', messages);
+
+// // Receiver (main)
+// ipcMain.handle('chat', async (event, messages) => {
+//   // Do something
+//   return result;
+// });
