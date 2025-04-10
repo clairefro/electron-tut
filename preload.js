@@ -12,7 +12,14 @@ contextBridge.exposeInMainWorld("deai", {
   ping: () => ipcRenderer.invoke("ping"),
 });
 
+// diff between ipcRenderer.invoke and ipcRenderer.send
+
 // ----- SEND -------
+// - One-way communication (fire and forget)
+// - No return value
+// - Asynchronous
+// - Good for events that don't need a response
+
 // // Sender (renderer)
 // ipcRenderer.send('save-note', content);
 
@@ -22,7 +29,10 @@ contextBridge.exposeInMainWorld("deai", {
 // });
 
 // ------- INVOKE -------
-// diff between ipcRenderer.invoke and ipcRenderer.send
+// - Two-way communication (request/response pattern)
+// - Returns a Promise
+// - Async/await support
+// - Good for ops that need a response
 
 // // Sender (renderer)
 // const response = await ipcRenderer.invoke('chat', messages);
